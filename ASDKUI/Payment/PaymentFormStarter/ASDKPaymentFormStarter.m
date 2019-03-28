@@ -150,6 +150,43 @@ static ASDKPaymentFormStarter * __paymentFormStarterInstance = nil;
 										 error:onError];
 }
 
+- (void)presentCompletePaymentForm:(UIViewController *)presentingViewController
+                           orderId:(NSString *)orderId
+                            amount:(NSNumber *)amount
+                             title:(NSString *)title
+                       description:(NSString *)description
+                            cardId:(NSString *)cardId
+                             email:(NSString *)email
+                       customerKey:(NSString *)customerKey
+                         recurrent:(BOOL)recurrent
+                        makeCharge:(BOOL)makeCharge
+             additionalPaymentData:(NSDictionary *)data
+                       receiptData:(NSDictionary *)receiptData
+                         shopsData:(NSArray *)shopsData
+                 shopsReceiptsData:(NSArray *)shopsReceiptsData
+                           success:(void (^)(ASDKPaymentInfo *paymentInfo))onSuccess
+                         cancelled:(void (^)(void))onCancelled
+                             error:(void (^)(ASDKAcquringSdkError *error))onError
+{
+    [self presentPaymentFormFromViewController:presentingViewController
+                                       orderId:orderId
+                                        amount:amount
+                                         title:title
+                                   description:description
+                                        cardId:cardId
+                                         email:email
+                                   customerKey:customerKey
+                                     recurrent:recurrent
+                                    makeCharge:makeCharge
+                         additionalPaymentData:data
+                                   receiptData:receiptData
+                                     shopsData:shopsData
+                             shopsReceiptsData:shopsReceiptsData
+                                       success:onSuccess
+                                     cancelled:onCancelled
+                                         error:onError];
+}
+
 - (void)presentPaymentFormFromViewController:(UIViewController *)presentingViewController
                                      orderId:(NSString *)orderId
                                       amount:(NSNumber *)amount

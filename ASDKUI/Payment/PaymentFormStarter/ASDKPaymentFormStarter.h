@@ -99,6 +99,24 @@
                                    cancelled:(void (^)(void))onCancelled
                                        error:(void (^)(ASDKAcquringSdkError *error))onError;
 
+- (void)presentCompletePaymentForm:(UIViewController *)presentingViewController
+                           orderId:(NSString *)orderId
+                            amount:(NSNumber *)amount
+                             title:(NSString *)title
+                       description:(NSString *)description
+                            cardId:(NSString *)cardId
+                             email:(NSString *)email
+                       customerKey:(NSString *)customerKey
+                         recurrent:(BOOL)recurrent
+                        makeCharge:(BOOL)makeCharge
+             additionalPaymentData:(NSDictionary *)data
+                       receiptData:(NSDictionary *)receiptData
+                         shopsData:(NSArray *)shopsData
+                 shopsReceiptsData:(NSArray *)shopsReceiptsData
+                           success:(void (^)(ASDKPaymentInfo *paymentInfo))onSuccess
+                         cancelled:(void (^)(void))onCancelled
+                             error:(void (^)(ASDKAcquringSdkError *error))onError;
+
 - (void)chargeWithRebillId:(NSNumber *)rebillId
 					amount:(NSNumber *)amount
 				   orderId:(NSString *)orderId
